@@ -1,0 +1,22 @@
+program ¡ú block
+block ¡ú {decls stmts}
+decls ¡ú decls decl | ¦Å
+decl ¡ú type id;
+type ¡ú type[num]|basic
+stmts ¡ú stmts stmt| ¦Å
+stmt ¡ú loc=bool;
+         |    if (bool) stmt
+         |    if (bool) stmt else stmt
+         |    while (bool) stmt
+         |    do stmt while (bool);
+         |    break;
+         |    block
+loc ¡ú loc[bool] | id
+bool  ¡ú bool || join | join
+join  ¡ú join && equality | equality
+equality  ¡ú equality == rel | equality!=rel | rel
+rel ¡ú expr < expr | expr <= expr | expr >= expr | expr > expr | expr 
+expr ¡ú expr+term | expr-term |term
+term ¡ú term * unary |term/unary|unary
+unary ¡ú !unary| -unary | factor
+factor¡ú (bool) | loc | num | real | true | false
